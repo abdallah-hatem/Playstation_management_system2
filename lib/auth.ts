@@ -26,7 +26,7 @@ export const authConfig: NextAuthOptions = {
         );
 
         if (dbUser && validPass) {
-          return dbUser as user;
+          return dbUser as any;
         } else {
           return null;
         }
