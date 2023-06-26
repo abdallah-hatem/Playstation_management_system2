@@ -1,0 +1,40 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model device {
+  id           Int        @id @default(autoincrement())
+  name         String
+  userId       Int
+  deviceTypeId Int
+  devicetype   devicetype @relation(fields: [deviceTypeId], references: [id], onDelete: Cascade, map: "Device_deviceTypeId_fkey")
+  user         user       @relation(fields: [userId], references: [id], onDelete: Cascade, map: "Device_userId_fkey")
+
+  @@index([deviceTypeId], map: "Device_deviceTypeId_fkey")
+  @@index([userId], map: "Device_userId_fkey")
+}
+
+model devicetype {
+  id       Int      @id @default(autoincrement())
+  name     String   @db.VarChar(255)
+  hourRate Int
+  userId   Int
+  device   device[]
+  user     user     @relation(fields: [userId], references: [id], onDelete: Cascade, map: "DeviceType_userId_fkey")
+
+  @@index([userId], map: "DeviceType_userId_fkey")
+}
+
+model user {
+  id         Int          @id @default(autoincrement())
+  name       String       @db.VarChar(255)
+  email      String       @unique(map: "email") @db.VarChar(255)
+  password   String       @db.VarChar(255)
+  device     device[]
+  devicetype devicetype[]
+}

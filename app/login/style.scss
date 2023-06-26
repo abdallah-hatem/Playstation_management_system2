@@ -1,0 +1,15 @@
+.submit-cont {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.login-card-cont {
+  width: 500px;
+  margin: auto;
+}
+
+@media only screen and (max-width: 600px) {
+  .login-card-cont {
+    width: 100%;
+  }
+}

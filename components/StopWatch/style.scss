@@ -1,0 +1,46 @@
+.device-cont {
+  .title-cont {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+    span {
+      font-weight: 600;
+      font-size: 15px;
+    }
+  }
+
+  .top-cont {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+
+    .info-cont {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      p {
+        font-weight: 500;
+      }
+    }
+
+    .timer {
+      font-size: 30px;
+      font-weight: 600;
+      // text-align: center;
+    }
+  }
+}
+
+.bot-cont {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  .bot-1 {
+    display: flex;
+    justify-content: space-between;
+  }
+}
