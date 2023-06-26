@@ -4,8 +4,6 @@ import { isUserRegistered } from "./isUserRegistered";
 import bcrypt from "bcryptjs";
 import { user } from "@prisma/client";
 
-// import jwt from "jsonwebtoken"
-
 export const authConfig: NextAuthOptions = {
   secret: process.env.NEXTAUTH_SECRET,
   providers: [
